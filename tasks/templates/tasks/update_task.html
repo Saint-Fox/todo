@@ -1,0 +1,7 @@
+<h3>Update Task</h3>
+<b>{{ task.title }}</b>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ update_form.as_p }}
+    <button type="submit">Update</button>
+</form>

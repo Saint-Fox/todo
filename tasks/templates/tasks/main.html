@@ -1,0 +1,29 @@
+<h3>TO DO</h3>
+
+
+{% block contnet %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Task</button>
+</form>
+
+<ul>
+    
+    {% for task in tasks %}
+    <a href="{% url 'update-task' task.id %}">Update</a>
+    <a href="{% url 'delete-task' task.id%}">Delete</a>
+        
+        {% if task.status == True %}
+            <li><strike><p>{{ task.title }} | {{ task.description }}</p></strike></li>
+        {% else %}
+            <li><p>{{ task.title }} | {{ task.description }}</p></li>
+        {% endif %}
+        
+    {% endfor %}
+        
+</ul>
+    
+{% endblock contnet %}
+    
